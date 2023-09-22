@@ -1,0 +1,232 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Documentation Template</title>
+    <meta name="description" content="A simple HTML/CSS DocumentationTemplate">
+    <meta name="author" content="Carlos Yllobre">
+
+    <link rel="stylesheet" href="style.css?">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="navbar clear nav-top">
+        <div class="row content">
+            <a href="#"><img class="logo" src="logo.svg"></a>
+           <!--  <a class="right" style="text-decoration: underline;" href="#"><i class="fas fa-book"></i>&nbsp; Documentation</a>
+            <a class="right" href="mailto:yourapp@email.com" target="_blank"><i class="fas fa-paper-plane"></i>&nbsp; yourapp@email.com</a>-->
+        </div>
+    </div>
+
+    <div class="container clear">
+        <div class="row wrapper">
+
+            <div class="sidepanel">
+
+                <a class="title" href="#">Introduction</a>
+                
+                <a class="section" href="#">Versioning</a>
+                <a class="section" href="#">About this tool</a>
+
+                <div class="divider left"></div>
+
+                <a class="title" href="#gettingstarted">Getting Started</a>
+                
+                <a class="section" href="#installation">Installation</a>
+                <a class="sub-section" href="#installingAppDesktop">Desktop</a>
+                <a class="sub-section" href="#installingAppWeb">Web</a>
+                <a class="section" href="#openingapp">Opening the App</a>
+
+                <div class="divider left"></div>
+
+                <a class="title" href="#ConnectMethods">Connect Methods</a>
+
+                <a class="section" href="#BitcoinMethod">Bitcoin</a>
+                <a class="section" href="#EthereumMethod">Ethereum</a>
+
+                <div class="divider left"></div>
+
+                <a class="title" href="#handlingEvents">Handling Events</a>
+
+                <div class="divider left"></div>
+
+                <a class="title" href="#Browsers">Browser-based environments</a>           
+            
+             <div class="space double"></div>
+
+            </div>
+
+            <div class="right-col">
+            
+
+                <h1 style="font-size: 30px">Trezor Connect</h1>
+
+                <h1 >Introduction</h1>
+                
+                <p>Welcome to Trezor Connect developer portal, which is interactive documentation of Trezor Connect.</p> 
+            
+                <h2>Versioning</h2>
+             
+                <p>Current version is <b>9.X.X</b></p>
+
+                npm packages link
+
+                <h2>About this App</h2>
+                
+                <p id="technology"> Trezor Connect is a tool for seamless integration of Trezor hardware wallet with third-party apps and extensions. Built with a developer-friendly interface, it ensures secure interactions for Trezor users within these apps.</p>
+
+                <h2>Technology</h2>
+                
+                <p>Trezor Connect is build with Javascript, ... </p>
+
+                <p id="gettingstarted"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p> 
+                 
+        <div class="divider" style="width:24%; margin:30px 0;"></div>
+
+                <h1>Getting Started</h1>
+
+                <h2 id="installation">Installation</h2>
+
+                <div class="two-columns">
+                    <div class="column">
+                      <h3>Desktop environment</h3>
+                      Install library as npm module:
+                      <pre class="twoColumnCode">import TrezorConnect from '@trezor/connect'</pre>
+                      or
+                      <pre class="twoColumnCode">yarn add @trezor/connect</pre>
+                      ES6:
+                      <pre class="twoColumnCode">import TrezorConnect from '@trezor/connect';</pre>
+                      <p id="installingAppDesktop"><b>Important:</b> This line is for important information.</p>
+                    </div>
+                    <div class="column">
+                      <h3>Web-based environment</h3>
+                      Install library as npm module
+                      <pre class="twoColumnCode">npm install @trezor/connect-web</pre>
+                      or
+                      <pre class="twoColumnCode">yarn add @trezor/connect-web</pre>
+                      or include library as inline script:
+                      <pre class="twoColumnCode">&lt;script src="https://connect.trezor.io/9/trezor-connect.js"&gt;&lt;/script&gt;</pre>
+                      ES6:
+                      <pre class="twoColumnCode">import TrezorConnect from '@trezor/connect-web';</pre>
+                      inline:
+                      <pre class="twoColumnCode">var TrezorConnect = window.TrezorConnect;</pre>
+                      <p id="installingAppWeb"><b>Important:</b> This line is for important information.</p>
+                    </div>
+                  </div>
+                 
+                
+                <h2>Initialize in project</h2>
+                <pre>TrezorConnect.init({
+    lazyLoad: true, // this param will prevent iframe injection until TrezorConnect.method will be called
+    manifest: {
+        email: 'developer@xyz.com',
+        appUrl: 'http://your.application.com',
+    },
+});</pre>
+                
+                <p>Trezor Connect Manifest requires that you, as a Trezor Connect integrator, share your e-mail and application url with us. This provides us with the ability to <strong>reach you in case of any required maintenance</strong>. This subscription is mandatory. Trezor Connect raises an error that reads "Manifest not set" if manifest is not provided. It can be either set via <code>manifest</code> method or passed as a param in <code>init</code> method.</p>
+            <pre>TrezorConnect.manifest({
+    email: 'developer@xyz.com',
+    appUrl: 'http://your.application.com',
+});</pre>
+
+                If you need more customization, refer to <a href="https://github.com/trezor/trezor-suite/blob/develop/docs/packages/connect/methods/init.md">init method documentation</a>.
+                    
+            <div class="divider" style="width:24%; margin:30px 0;"></div>
+            
+            
+                <h1>Connect Methods</h1>
+
+                <p id="ConnectMethods">API call return a <code>Promise</code>. Resolve is guaranteed to get called with a <code>result</code> object, even if user closes the window, network connection times out, etc. In case of failure <code>result.success</code> is set to false and <code>result.payload.error</code> is the error message. It is recommended to log the error message and let user restart the action.</p>
+
+                Every method require an <code>Object</code> with combination of <code>common</code> fields and method specific fields.
+                <ul>
+                    <li><a href="https://github.com/trezor/trezor-suite/blob/develop/docs/packages/connect/methods/getPublicKey.md">TrezorConnect.getPublicKey</a></li>
+                    <li>TrezorConnect.requestLogin</li>
+                    <li>TrezorConnect.cipherKeyValue</li>
+                    <li>TrezorConnect.wipeDevice</li>
+                    <li>TrezorConnect.getCoinInfo</li>
+                    <li>TrezorConnect.getDeviceState</li>
+                  </ul>
+
+                <h3 id="BitcoinMethod">Bitcoin, Bitcoin Cash, Bitcoin Gold, Litecoin, Dash, ZCash, Testnet</h3> 
+                <ul>
+                    <li>TrezorConnect.getAddress</li>
+                    <li>TrezorConnect.getAccountInfo</li>
+                    <li>TrezorConnect.getOwnershipId</li>
+                    <li>TrezorConnect.composeTransaction</li>
+                    <li>TrezorConnect.signTransaction</li>
+                    <li>TrezorConnect.pushTransaction</li>
+                    <li>TrezorConnect.signMessage</li>
+                    <li>TrezorConnect.verifyMessage</li>
+                    <li>TrezorConnect.authorizeCoinjoin</li>
+                </ul>
+                
+                <h3 id="EthereumMethod">Ethereum</h3> 
+                <ul>
+                    <li>TrezorConnect.ethereumGetAddress</li>
+                    <li>TrezorConnect.ethereumSignTransaction</li>
+                    <li>TrezorConnect.ethereumSignMessage</li>
+                    <li>TrezorConnect.ethereumSignTypedData</li>
+                    <li>TrezorConnect.ethereumVerifyMessage</li>
+                </ul>
+                
+                
+                <div class="divider" style="width:24%; margin:30px 0;"></div>
+                
+                <h1 id="handlingEvents">Handling events</h1>
+                <p>Once user grants permission for hosting page to communicate with API TrezorConnect will emits events about device state. Events can be distinguished by "type" field of event object (TODO structure) Constants of all types can be imported from package.</p>
+                ES6
+                <pre>import TrezorConnect, { DEVICE_EVENT, DEVICE } from '@trezor/connect';
+    TrezorConnect.on(DEVICE_EVENT, event => {
+        if (event.type === DEVICE.CONNECT) {
+        } else if (event.type === DEVICE.DISCONNECT) {
+        }
+});</pre>
+                
+                   
+                 
+                  
+                <div class="divider" style="width:24%; margin:30px 0;"></div>
+                   
+                   <h1 id="Browsers">Browser-based environments</h1>
+                   
+                   <p>After implementing Trezor Connect, a small file containing a declaration of methods is downloaded. Once the Trezor Connect <a href="#ConnectMethods">methods</a> is used, the connection to the trezor.io external webpage is established and the Trezor Connect library is going to be downloaded and injected as an invisible iframe into your application. Trezor Connect is open source, therefore it is provable that it is not saving any information about the device or account. Trezor Bridge has whitelisted domains set to "*.trezor.io" and "localhost" and it is ignoring messages coming from other domains. This ensures that Connect is not providing any data without the user's consent. Trezor Connect works as a tunnel for messages sent from your application to Trezor device via transport layer (Trezor Bridge/WebUSB).</p>
+                
+                   <img src="connect_flowchart.png" alt="Trezor Connect">
+                   
+                   <h4>Note:</h4>
+                   <p>With the newest Trezor Connect API, the iframe element ensures that the communication after authentification with PIN and/or Passphrase persists until one of the events below:</p>
+
+                   <ul>
+                    <li>application is closed or reloaded</li>
+                    <li>device is unplugged or used in another application</li>
+                    <li>ten minutes of being idle</li>
+                   </ul>
+
+                   <p>The advantages are that the session carries on, it is not necessary to re-enter your PIN and/or Passphrase and, furthermore, it is sending events to application when the device is connected, disconnected or used in another window (application). This feature makes it easier to use the Trezor device with applications.</p>
+
+
+                <div class="doublespace"></div>
+                
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
